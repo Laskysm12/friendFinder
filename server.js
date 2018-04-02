@@ -18,8 +18,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
  
 
-// Includes the HTML Routes on server.js
+// Includes the HTML and API Routes on server.js
 // The app being passed into this function is Express
+require('./app/routing/apiRoutes.js')(app);
 require('./app/routing/htmlRoutes.js')(app);
 
 
