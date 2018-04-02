@@ -7,25 +7,21 @@ var path = require("path");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-// Sets up the Express app to handle data parsing
-app.use(bodyParser.urlencoded({ extended: true}));
-app.use(bodyParser.json());
+// app.get('/', function (req, res) {
+//     res.send('Hello World');
+// })
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+ 
+// parse application/json
+app.use(bodyParser.json())
+ 
 
+// Includes the HTML Routes on server.js
+// The app being passed into this function is Express
+require('./app/routing/htmlRoutes.js')(app);
 
-// ***** THESE GO ON THE SPECIFIC ROUTES.JS Files
-// Routes
-// ======================================================================
-
-// Basic route that sends the user first to the Home Page
-app.get("/", function(req, res) {
-    res.sendFile(path.join(_dirname, "home.html"));
-});
-
-// // Route that sends the user to the Survey Page
-// app.get("/survey", function(req, res) {
-//     res.sendFile(path.join(_dirname, "survey.html"));
-// });
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
