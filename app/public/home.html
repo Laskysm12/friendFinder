@@ -18,6 +18,7 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
 
+    <!-- Link to server.js file -->
     <script type="text/javascript" src="/FriendFinder/server.js"></script>
 
 </head>
@@ -26,19 +27,29 @@
 
     <div class="container">
         <div class="jumbotron">
-            <h1 class="display-4">Hello, world!</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content
-                or information.
+            <h1 class="display-4">
+                <strong>Friend Finder</strong>
+            </h1>
+            <hr>
+            <p class="lead"><strong>Just answer a few basic questions to find a friend with the greatest compatibility!</strong>
             </p>
-            <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <p class="lead">
-                <!-- NEED TO FIX THESE!!! Need to add a / for the router I think-->
-                <a class="btn btn-lg bg-white text-secondary" href="/" role="button">Home</a>
-                <a class="btn btn-primary btn-lg" href="/survey" role="button">Survey</a>
-            </p>
+            <br>
+            
+            <div>
+                <a href="/survey"><button type="button" class="btn btn-lg btn-primary"><h4>Go to Survey</h4></button></a>
+            </div>
+
         </div>
     </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>
+                <a href="/api/friends">API Friends List</a> |
+                <a href="https://github.com/Laskysm12/friendFinder">GitHub Repo</a>
+            </p>
+        </div>
+    </footer>
 
 </body>
 

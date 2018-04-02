@@ -19,17 +19,17 @@
     <script src="https://code.jquery.com/jquery.js"></script>
 
     <script type="text/javascript" src="/FriendFinder/server.js"></script>
-    
+
 </head>
 
 <body>
 
     <div class="container">
 
-        <h1>Survey Questions</h1>
+        <h1 class="text-center">Survey Questions</h1>
         <hr>
 
-        <h2>
+        <h2 class="text-center">
             <strong>About You</strong>
         </h2>
         <h5>Name (Required)</h5>
@@ -43,7 +43,7 @@
         <h4>
             <strong>Question 1</strong>
         </h4>
-        <h6>Your mind is always buzzing with unexplored ideas and plans.</h6>
+        <h6>You see yourself as an adventurous person.</h6>
         <select class="custom-select" id="q1">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -54,9 +54,9 @@
         </select>
 
         <h4>
-            <strong>Question 1</strong>
+            <strong>Question 2</strong>
         </h4>
-        <h6>Your mind is always buzzing with unexplored ideas and plans.</h6>
+        <h6>In your free time you prefer to relax and "unwind".</h6>
         <select class="custom-select" id="q1">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -67,9 +67,9 @@
         </select>
 
         <h4>
-            <strong>Question 1</strong>
+            <strong>Question 3</strong>
         </h4>
-        <h6>Your mind is always buzzing with unexplored ideas and plans.</h6>
+        <h6>You consider yourself to be a spontaneous person.</h6>
         <select class="custom-select" id="q1">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -80,9 +80,9 @@
         </select>
 
         <h4>
-            <strong>Question 1</strong>
+            <strong>Question 4</strong>
         </h4>
-        <h6>Your mind is always buzzing with unexplored ideas and plans.</h6>
+        <h6>Your enjoy trying new activities.</h6>
         <select class="custom-select" id="q1">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -93,9 +93,9 @@
         </select>
 
         <h4>
-            <strong>Question 1</strong>
+            <strong>Question 5</strong>
         </h4>
-        <h6>Your mind is always buzzing with unexplored ideas and plans.</h6>
+        <h6>You prefer having a small group of close friends.</h6>
         <select class="custom-select" id="q1">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -106,9 +106,9 @@
         </select>
 
         <h4>
-            <strong>Question 1</strong>
+            <strong>Question 6</strong>
         </h4>
-        <h6>Your mind is always buzzing with unexplored ideas and plans.</h6>
+        <h6>You enjoy meeting new people and become energized by the experience.</h6>
         <select class="custom-select" id="q1">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -119,9 +119,9 @@
         </select>
 
         <h4>
-            <strong>Question 1</strong>
+            <strong>Question 7</strong>
         </h4>
-        <h6>Your mind is always buzzing with unexplored ideas and plans.</h6>
+        <h6>It is important to have friends who share the same values and interests as you.</h6>
         <select class="custom-select" id="q1">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -132,9 +132,9 @@
         </select>
 
         <h4>
-            <strong>Question 1</strong>
+            <strong>Question 8</strong>
         </h4>
-        <h6>Your mind is always buzzing with unexplored ideas and plans.</h6>
+        <h6>Although you may disagree with them, you respect the opinions of others.</h6>
         <select class="custom-select" id="q1">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -145,9 +145,9 @@
         </select>
 
         <h4>
-            <strong>Question 1</strong>
+            <strong>Question 9</strong>
         </h4>
-        <h6>Your mind is always buzzing with unexplored ideas and plans.</h6>
+        <h6>You are not easily upset by others.</h6>
         <select class="custom-select" id="q1">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -158,9 +158,9 @@
         </select>
 
         <h4>
-            <strong>Question 1</strong>
+            <strong>Question 10</strong>
         </h4>
-        <h6>Your mind is always buzzing with unexplored ideas and plans.</h6>
+        <h6>You find it easy to relate with other people, even if meeting them for the first time.</h6>
         <select class="custom-select" id="q1">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -169,6 +169,24 @@
             <option value="4">4</option>
             <option value="5">5 (Strongly Agree)</option>
         </select>
+
+        <br>
+        <br>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">
+            <i class="fa fa-check-circle" aria-hidden="true"></i>
+            Submit</button>
+
+        <hr>
+        <footer class="footer">
+            <div class="container">
+                <p>
+                    <a href="/api/friends">API Friends List</a> |
+                    <a href="https://github.com/Laskysm12/friendFinder">GitHub Repo</a>
+                </p>
+            </div>
+        </footer>
     </div>
 
 
