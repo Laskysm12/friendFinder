@@ -8,10 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap and JQuery Links -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
@@ -57,7 +56,7 @@
             <strong>Question 2</strong>
         </h4>
         <h6>In your free time you prefer to relax and "unwind".</h6>
-        <select class="custom-select" id="q1">
+        <select class="custom-select" id="q2">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -70,7 +69,7 @@
             <strong>Question 3</strong>
         </h4>
         <h6>You consider yourself to be a spontaneous person.</h6>
-        <select class="custom-select" id="q1">
+        <select class="custom-select" id="q3">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -83,7 +82,7 @@
             <strong>Question 4</strong>
         </h4>
         <h6>Your enjoy trying new activities.</h6>
-        <select class="custom-select" id="q1">
+        <select class="custom-select" id="q4">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -96,7 +95,7 @@
             <strong>Question 5</strong>
         </h4>
         <h6>You prefer having a small group of close friends.</h6>
-        <select class="custom-select" id="q1">
+        <select class="custom-select" id="q5">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -109,7 +108,7 @@
             <strong>Question 6</strong>
         </h4>
         <h6>You enjoy meeting new people and become energized by the experience.</h6>
-        <select class="custom-select" id="q1">
+        <select class="custom-select" id="q6">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -122,7 +121,7 @@
             <strong>Question 7</strong>
         </h4>
         <h6>It is important to have friends who share the same values and interests as you.</h6>
-        <select class="custom-select" id="q1">
+        <select class="custom-select" id="q7">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -135,7 +134,7 @@
             <strong>Question 8</strong>
         </h4>
         <h6>Although you may disagree with them, you respect the opinions of others.</h6>
-        <select class="custom-select" id="q1">
+        <select class="custom-select" id="q8">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -148,7 +147,7 @@
             <strong>Question 9</strong>
         </h4>
         <h6>You are not easily upset by others.</h6>
-        <select class="custom-select" id="q1">
+        <select class="custom-select" id="q9">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -161,7 +160,7 @@
             <strong>Question 10</strong>
         </h4>
         <h6>You find it easy to relate with other people, even if meeting them for the first time.</h6>
-        <select class="custom-select" id="q1">
+        <select class="custom-select" id="q10">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -189,6 +188,99 @@
         </footer>
     </div>
 
+    <!-- Modal to show friend match -->
+    <div class="results-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          
+            <!-- Content of the modal -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Best Match!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h2 id="match-name"></h2>
+              <img id="match-image">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     <script type="text/javascript">
+        // Captures the form input (submit button)
+        $("#submit").on("click", function(event) {
+            event.preventDefault();
+
+            var userData = {
+                name: $("#name").val(),
+                photo: $("#photo").val(),
+                scores: [
+                    $("#q1").val(),
+                    $("#q2").val(),
+                    $("#q3").val(),
+                    $("#q4").val(),
+                    $("#q5").val(),
+                    $("#q6").val(),
+                    $("#q7").val(),
+                    $("#q8").val(),
+                    $("#q9").val(),
+                    $("#q10").val()
+                ]
+            }
+
+            console.log(userData);
+            // var userArray = [];
+            // for (var i = 1; i < 11; i++) {
+                
+            // }
+
+            // var value = $("#q2").val();
+            //     console.log(value);
+        })
+
+
+        // // Form validation ???
+        // function validateForm() {
+        //     var isValid = true;
+        //     $(".form-control").each(function() {
+        //         if ($(this).val() === "") {
+        //             isValid = false;
+        //         }
+        //     });
+        // }
+        
+            // Create an object for the user"s data
+            var userData = {
+                name: $("#name").val(),
+                photo: $("#photo").val(),
+                scores: [
+                    $("#q1").val(),
+                    $("#q2").val(),
+                    $("#q3").val(),
+                    $("#q4").val(),
+                    $("#q5").val(),
+                    $("#q6").val(),
+                    $("#q7").val(),
+                    $("#q8").val(),
+                    $("#q9").val(),
+                    $("#q10").val()
+                ]
+            }
+
+        console.log(userData);
+
+        // Using AJAX to post the data to the friends API
+        $.post("/api/friends", userData, function(data) {
+
+        }) 
+
+
+    </script>
 
 </body>
 
