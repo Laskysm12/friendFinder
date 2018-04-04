@@ -1,6 +1,7 @@
 // var path = require('path');
 
 // Pulling in data to be displayed in API routes
+// This variable requires friends.js, which contains all of the information for the array of possible friends
 var friendsData = require('../data/friends.js');
 
 // Here "app" represents express
@@ -12,7 +13,12 @@ module.exports = function (app) {
     });
 
     // app.post('/api/friends', function (req, res) {
-    //     if()
+
+    //     var bestMatch = {
+    //         name: "",
+    //         photo: "",
+    //     }
+    
     // })
 
 }
